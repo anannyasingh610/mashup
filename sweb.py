@@ -17,11 +17,11 @@ st.title("Mashup Maker")
 st.title('Anannya Singh-102003253')
 form = st.form(key='my_form')
 
-name = form.text_input(label='Enter singer name')
-output_file = form.text_input(label='Enter output file name')
-num_videos =  form.number_input("Enter the number of videos", min_value=1, max_value=20, value=10)
-audio_duration = form.number_input("Enter the audio duration", min_value=1, max_value=100, value=10)
-email = form.text_input(label='Enter email')
+name = form.text_input(label='Singer Name')
+email = form.text_input(label='Email')
+output_file = form.text_input(label='Output File Name')
+num_videos =  form.number_input("Number Of Videos", min_value=1, max_value=20, value=10)
+audio_duration = form.number_input("Audio Duration", min_value=1, max_value=100, value=10)
 submit_button = form.form_submit_button(label='Submit')
 cut_duration = audio_duration
 PASSWORD = st.secrets["PASSWORD"]
@@ -162,7 +162,6 @@ if submit_button:
     if name == '' or num_videos == '' or cut_duration == '' or output_file == '' or email == '':
         st.warning('Please enter all the fields')
     else:
-        st.success('Please wait while we process your request')
         if output_file.count('.') == 0:
             output_file += '.mp3'
         output_file.split('.')[-1] = 'mp3'
